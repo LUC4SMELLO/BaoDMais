@@ -18,6 +18,15 @@ body {
     display: flex;
     gap: 25px; /* Controle total do espaço entre as duas imagens aqui */
 }
+.icones a {
+    text-decoration: none; /* Remove qualquer sublinhado */
+    display: inline-block; /* Garante que o link tenha o tamanho da imagem */
+    transition: transform 0.2s; /* Opcional: efeito suave ao passar o mouse */
+}
+.icones a:hover {
+    transform: scale(1.1); /* Opcional: ícone aumenta levemente ao passar o mouse */
+    opacity: 0.8;          /* Opcional: ícone fica levemente transparente */
+}
 
 .pesquisa {
     border: 1px solid;

@@ -19,7 +19,9 @@
         <div class="topo">
             <h3>Olá, username!</h3>
             <div class="icones">
-                <img src="{{ url_for('static', filename='images/carrinho_black.png') }}" width="35" alt="Carrinho">
+                    <a href="{{ url_for('carrinho.carrinho') }}">
+                        <img src="{{ url_for('static', filename='images/carrinho_black.png') }}" width="35" alt="Carrinho">
+                    </a>
                 <img src="{{ url_for('static', filename='images/usuario_black.png') }}" width="35" alt="Usuário">
             </div>
         </div>
