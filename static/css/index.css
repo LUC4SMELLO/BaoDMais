@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem; /* aprox. 32px */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
