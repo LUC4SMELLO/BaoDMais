@@ -44,7 +44,8 @@
             <h3>Disponíveis:</h3>
             <hr>
         </div>
-
+        
+        {% for estabelecimento in estabelecimentos %}
         <a href="{{ url_for('estabelecimento.estabelecimento') }}" class="card-link">
         <div class="card-estabelecimento">
             <div class="informacoes-estabelecimento">
@@ -52,13 +53,13 @@
                 <div class="lado-esquerdo">
                     <img src="{{ url_for('static', filename='images/restaurante.png') }}" width="50" alt="Foto">
                     <div class="texto-estabelecimento">
-                        <b>Nome Estabelecimento</b>
-                        <span>Tipo Estabelecimento</span><br>
+                        <b>{{ estabelecimento[1] }}</b>
+                        <span>{{ estabelecimento[2] }}</span><br>
                         <small>Aceita Cartão • Recebe Pix</small>
                     </div>
                 </div>
 
-                <!-- Grupo da Direita (Novas imagens) -->
+                <!-- Grupo da Direita -->
                 <div class="icones-direita">
                     <img src="{{ url_for('static', filename='images/favorito_black.png') }}" width="20" height="20" alt="Favoritar">
                     <br>
@@ -67,6 +68,7 @@
             </div>
         </div>
         </a>
+        {% endfor %}
 
     </div>
 </body>

@@ -54,6 +54,7 @@ body {
 hr {
     border: 0;
     border-top: 2px solid;
+    margin-bottom: 15px;
 }
 
 .card-link {
@@ -74,6 +75,7 @@ hr {
     cursor: pointer;
     border: 1px solid #ddd;
     border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .card-estabelecimento:hover {
