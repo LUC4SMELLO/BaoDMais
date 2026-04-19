@@ -2,61 +2,83 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    text-align: center;
 }
 
+/* Botão voltar */
 .voltar {
     display: flex;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
+    margin: 15px;
 }
 
+/* CARD PRINCIPAL */
 .informacoes-estabelecimento {
-    display: flex;
-    align-items: left;
-    border-radius: 8px;
-    border: 1px solid #000000;
+    display: grid;
+    grid-template-columns: 150px 1fr; /* foto | conteúdo */
+    gap: 12px;
+    align-items: center;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
 }
 
-.foto-estabelecimento {
+/* IMAGEM */
+.foto-estabelecimento img {
+    width: 150px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* BLOCO DE TEXTO */
+.texto-estabelecimento {
+    display: grid;
+    gap: 6px;
+}
+
+/* LINHA NOME + ESTRELA */
+.linha-nome {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+/* NOME */
+.linha-nome b {
+    font-size: 16px;
+}
+
+/* TIPO */
+.texto-estabelecimento small {
+    color: #666;
+}
+
+/* AVALIAÇÃO */
+.avaliacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* LINHA INFERIOR */
+.texto-tempo-delivery {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
     margin-top: 5px;
 }
 
-.linha-nome {
-    display: flex;
-    justify-content: space-between; /* joga cada um pra um lado */
-    align-items: center;
-    gap: 65px;
-    margin-bottom: 80px;
-}
-
-.avaliacao {
-    margin-right: 10px;
-}
-.texto-estabelecimento {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    text-align: left;
-    min-height: 140px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-}
-
-.texto-tempo-delivery {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* TEMPO (ESQUERDA) */
 .tempo-esquerda {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
 }
 
+/* TEXTO DIREITA */
 .tempo-direita {
-    margin-right: 10px;
+    font-size: 14px;
 }

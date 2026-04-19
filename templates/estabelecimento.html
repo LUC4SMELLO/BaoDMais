@@ -15,29 +15,29 @@
 
     <div class="informacoes-estabelecimento">
         <div class="foto-estabelecimento">
-            <img src="{{ url_for('static', filename='images/estabelecimentos/ditalia_pizzaria.jfif') }}" width="150">
+            <img  src="{{ url_for('static', filename=caminho_foto if caminho_foto else 'images/icons/restaurante.png') }}" width="150">            
         </div>
 
         <div class="texto-estabelecimento">
 
             <div class="linha-nome">
                 <div>
-                    <b>Nome Estabelecimento</b><br>
-                    <small>Tipo Estabelecimento</small>
+                    <b>{{ nome }}</b><br>
+                    <small>{{ tipo }}</small>
                 </div>
                 <div class="avaliacao">
                     <img src="{{ url_for('static', filename='images/icons/estrela_black.png') }}" width="20" alt="Avaliação"><br>
-                    5.3
+                    {{ avaliacao }}
                 </div>
             </div>
             
             <div class="texto-tempo-delivery">
                 <div class="tempo-esquerda">
                     <img src="{{ url_for('static', filename='images/icons/relogio_black.png') }}" width="20" alt="Relógio">
-                    <small>30-50 min</small>
+                    <small>{{ tempo_delivery }}</small>
                 </div>
                 <div class="tempo-direita">
-                    <b>Mínimo:</b> R$ 10,00
+                    <b>Mínimo:</b> {{ pedido_minimo }}
                 </div>
             </div>
 
