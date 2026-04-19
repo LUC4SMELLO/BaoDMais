@@ -7,7 +7,43 @@
     <title>Estabelecimento</title>
 </head>
 <body>
-    <h1>Estabelecimento</h1>
-    <h1>Em contrução...</h1>
+    <div class="voltar">
+        <a href="{{ url_for('pagina_inicial.pagina_inicial') }}">
+            <img src="{{ url_for('static', filename='images/icons/voltar_black.png') }}" width="40" alt="Relógio">
+        </a>
+    </div>
+
+    <div class="informacoes-estabelecimento">
+        <div class="foto-estabelecimento">
+            <img src="{{ url_for('static', filename='images/estabelecimentos/ditalia_pizzaria.jfif') }}" width="150">
+        </div>
+
+        <div class="texto-estabelecimento">
+
+            <div class="linha-nome">
+                <div>
+                    <b>Nome Estabelecimento</b><br>
+                    <small>Tipo Estabelecimento</small>
+                </div>
+                <div class="avaliacao">
+                    <img src="{{ url_for('static', filename='images/icons/estrela_black.png') }}" width="20" alt="Avaliação"><br>
+                    5.3
+                </div>
+            </div>
+            
+            <div class="texto-tempo-delivery">
+                <div class="tempo-esquerda">
+                    <img src="{{ url_for('static', filename='images/icons/relogio_black.png') }}" width="20" alt="Relógio">
+                    <small>30-50 min</small>
+                </div>
+                <div class="tempo-direita">
+                    <b>Mínimo:</b> R$ 10,00
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
+
