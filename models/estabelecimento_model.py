@@ -41,7 +41,46 @@ class EstabelecimentoModel:
         finally:
             if conexao:
                 conexao.close()
+
+
+    @staticmethod
+    def buscar_estabelecimento(id):
+
+        conexao = None
+        try:
+            conexao = conectar_banco_dados_estabelecimento()
+            cursor = conexao.cursor()
+
+            cursor.execute(
+                f"""
+                SELECT
+                nome,
+                tipo,
+                avaliacao,
+                pedido_minimo,
+                tempo_delivery,
+                caminho_foto
+                FROM {TABELA_ESTABELECIMENTOS}
+                WHERE id = ?
+                """,
+                (
+                    id,
+                )
+            )
+
+            resultado = cursor.fetchone()
+
+            return resultado
             
+        except Exception as erro:
+            print("Erro ao buscar estabelecimento: ", erro)
+            return
+        
+        finally:
+            if conexao:
+                conexao.close()
+
+
     @staticmethod
     def listar_estabelecimentos():
 
