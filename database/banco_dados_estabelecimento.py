@@ -16,7 +16,7 @@ def criar_tabela_estabelecimentos():
         id INTEGER PRIMARY KEY,
         nome VARCHAR(100),
         tipo TEXT,
-        avaliacao INTERGER,
+        avaliacao TEXT,
         pedido_minimo TEXT,
         tempo_delivery TEXT
         )
