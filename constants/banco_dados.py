@@ -1,5 +1,10 @@
 from constants.paths import DATABASE_DIR
 
 
-BANCO_DADOS_ESTABELECIMENTOS = DATABASE_DIR / "estabelecimentos.db"
+BANCO_DADOS_PRINCIPAL = DATABASE_DIR / "app.db"
+
 TABELA_ESTABELECIMENTOS = "estabelecimentos"
+
+TABELA_ITENS = "itens"
+
+TABELA_CATEGORIAS = "categorias"

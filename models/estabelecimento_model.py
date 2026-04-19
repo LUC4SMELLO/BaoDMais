@@ -1,4 +1,4 @@
-from database.banco_dados_estabelecimento import conectar_banco_dados_estabelecimentos
+from database.banco_dados_principal import conectar_banco_dados_principal
 from constants.banco_dados import TABELA_ESTABELECIMENTOS
 
 class EstabelecimentoModel:
@@ -9,7 +9,7 @@ class EstabelecimentoModel:
 
         conexao = None
         try:
-            conexao = conectar_banco_dados_estabelecimentos()
+            conexao = conectar_banco_dados_principal()
             cursor = conexao.cursor()
 
             cursor.execute(
@@ -48,7 +48,7 @@ class EstabelecimentoModel:
 
         conexao = None
         try:
-            conexao = conectar_banco_dados_estabelecimentos()
+            conexao = conectar_banco_dados_principal()
             cursor = conexao.cursor()
 
             cursor.execute(
@@ -86,7 +86,7 @@ class EstabelecimentoModel:
 
         conexao = None
         try:
-            conexao = conectar_banco_dados_estabelecimentos()
+            conexao = conectar_banco_dados_principal()
             cursor = conexao.cursor()
 
             cursor.execute(f"SELECT * FROM {TABELA_ESTABELECIMENTOS}")
