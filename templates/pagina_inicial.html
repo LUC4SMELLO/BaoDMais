@@ -48,7 +48,7 @@
         {% for estabelecimento in estabelecimentos %}
         <div class="container-card">
 
-            <a href="{{ url_for('estabelecimento.estabelecimento') }}" class="card-link">
+            <a href="{{ url_for('estabelecimento.estabelecimento', id=estabelecimento[0]) }}" class="card-link">
             <div class="card-estabelecimento">
                 <div class="informacoes-estabelecimento">
                     <!-- Grupo da Esquerda -->
