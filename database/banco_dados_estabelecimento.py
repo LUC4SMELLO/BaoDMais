@@ -3,11 +3,11 @@ import sqlite3
 from constants.banco_dados import BANCO_DADOS_ESTABELECIMENTOS, TABELA_ESTABELECIMENTOS
 
 
-def conectar_banco_dados_estabelecimento():
+def conectar_banco_dados_estabelecimentos():
     return sqlite3.connect(BANCO_DADOS_ESTABELECIMENTOS)
 
 def criar_tabela_estabelecimentos():
-    conexao = conectar_banco_dados_estabelecimento()
+    conexao = conectar_banco_dados_estabelecimentos()
     cursor = conexao.cursor()
 
     cursor.execute(
