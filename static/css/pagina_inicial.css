@@ -70,6 +70,16 @@ hr {
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    transition: background-color 0.2s, transform 0.1s;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.card-estabelecimento:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px); /* Leve levantada no card */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .informacoes-estabelecimento {
