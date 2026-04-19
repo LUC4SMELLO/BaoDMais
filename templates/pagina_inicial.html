@@ -20,10 +20,10 @@
             <h3>Olá, username!</h3>
             <div class="icones">
                 <a href="{{ url_for('carrinho.carrinho') }}">
-                    <img src="{{ url_for('static', filename='images/carrinho_black.png') }}" width="35" alt="Carrinho">
+                    <img src="{{ url_for('static', filename='images/icons/carrinho_black.png') }}" width="35" alt="Carrinho">
                 </a>
                 <a href="{{ url_for('usuario.usuario') }}">
-                    <img src="{{ url_for('static', filename='images/usuario_black.png') }}" width="35" alt="Usuário">
+                    <img src="{{ url_for('static', filename='images/icons/usuario_black.png') }}" width="35" alt="Usuário">
                 </a>
             </div>
         </div>
@@ -33,11 +33,11 @@
         </div>
 
         <div class="categorias">
-            <div><img src="{{ url_for('static', filename='images/hamburguer_black.png') }}" width="50" alt="Lanche"><br>Lanches</div>
-            <div><img src="{{ url_for('static', filename='images/pizza_black.png') }}" width="50" alt="Pizza"><br>Pizzas</div>
-            <div><img src="{{ url_for('static', filename='images/bebida_black.png') }}" width="50" alt="Bebida"><br>Bebidas</div>
-            <div><img src="{{ url_for('static', filename='images/prato_black.png') }}" width="50" alt="Prato"><br>Pratos</div>
-            <div><img src="{{ url_for('static', filename='images/outros_black.png') }}" width="50" alt="Outros"><br>Outros</div>
+            <div><img src="{{ url_for('static', filename='images/icons/hamburguer_black.png') }}" width="50" alt="Lanche"><br>Lanches</div>
+            <div><img src="{{ url_for('static', filename='images/icons/pizza_black.png') }}" width="50" alt="Pizza"><br>Pizzas</div>
+            <div><img src="{{ url_for('static', filename='images/icons/bebida_black.png') }}" width="50" alt="Bebida"><br>Bebidas</div>
+            <div><img src="{{ url_for('static', filename='images/icons/prato_black.png') }}" width="50" alt="Prato"><br>Pratos</div>
+            <div><img src="{{ url_for('static', filename='images/icons/outros_black.png') }}" width="50" alt="Outros"><br>Outros</div>
         </div>
 
         <div class="disponiveis">
@@ -53,7 +53,7 @@
                 <div class="informacoes-estabelecimento">
                     <!-- Grupo da Esquerda -->
                     <div class="lado-esquerdo">
-                        <img src="{{ url_for('static', filename='images/restaurante.png') }}" width="50" alt="Foto">
+                        <img  src="{{ url_for('static', filename=estabelecimento[6] if estabelecimento[6] else 'images/icons/restaurante.png') }}" width="75">
                         <div class="texto-estabelecimento">
                             <b>{{ estabelecimento[1] }}</b>
                             <span>{{ estabelecimento[2] }}</span><br>
@@ -66,9 +66,9 @@
             
             <!-- Grupo da Direita -->
             <div class="icones-direita">
-                <img src="{{ url_for('static', filename='images/favorito_black.png') }}" width="20" height="20" alt="Favoritar">
+                <img src="{{ url_for('static', filename='images/icons/favorito_black.png') }}" width="20" height="20" alt="Favoritar">
                 <br>
-                <img src="{{ url_for('static', filename='images/estrela_black.png') }}" width="20" alt="Avaliação">
+                <img src="{{ url_for('static', filename='images/icons/estrela_black.png') }}" width="20" alt="Avaliação">
                 <small>{{ estabelecimento[3] }}</small>
             </div>
 

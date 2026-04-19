@@ -18,7 +18,8 @@ def criar_tabela_estabelecimentos():
         tipo TEXT,
         avaliacao TEXT,
         pedido_minimo TEXT,
-        tempo_delivery TEXT
+        tempo_delivery TEXT,
+        caminho_foto TEXT
         )
         """
     )
