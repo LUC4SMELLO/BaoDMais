@@ -61,7 +61,14 @@ hr {
     text-decoration: none;
     color: inherit;
     display: block;
+    max-width: 375px;
     width: 100%;
+}
+
+.container-card {
+    display: flex;
+    align-items: center; /* alinha verticalmente */
+    gap: 10px;
 }
 
 .card-estabelecimento {
@@ -102,6 +109,7 @@ hr {
 .icones-direita {
     display: flex;
     flex-direction: column;
+    gap: 2px;
 }
 
 .texto-estabelecimento {

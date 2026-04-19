@@ -46,28 +46,33 @@
         </div>
         
         {% for estabelecimento in estabelecimentos %}
-        <a href="{{ url_for('estabelecimento.estabelecimento') }}" class="card-link">
-        <div class="card-estabelecimento">
-            <div class="informacoes-estabelecimento">
-                <!-- Grupo da Esquerda -->
-                <div class="lado-esquerdo">
-                    <img src="{{ url_for('static', filename='images/restaurante.png') }}" width="50" alt="Foto">
-                    <div class="texto-estabelecimento">
-                        <b>{{ estabelecimento[1] }}</b>
-                        <span>{{ estabelecimento[2] }}</span><br>
-                        <small>Aceita Cartão • Recebe Pix</small>
+        <div class="container-card">
+
+            <a href="{{ url_for('estabelecimento.estabelecimento') }}" class="card-link">
+            <div class="card-estabelecimento">
+                <div class="informacoes-estabelecimento">
+                    <!-- Grupo da Esquerda -->
+                    <div class="lado-esquerdo">
+                        <img src="{{ url_for('static', filename='images/restaurante.png') }}" width="50" alt="Foto">
+                        <div class="texto-estabelecimento">
+                            <b>{{ estabelecimento[1] }}</b>
+                            <span>{{ estabelecimento[2] }}</span><br>
+                            <small>Aceita Cartão • Recebe Pix</small>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Grupo da Direita -->
-                <div class="icones-direita">
-                    <img src="{{ url_for('static', filename='images/favorito_black.png') }}" width="20" height="20" alt="Favoritar">
-                    <br>
-                    <img src="{{ url_for('static', filename='images/estrela_black.png') }}" width="20" alt="Avaliação">
-                </div>
             </div>
+            </a>
+            
+            <!-- Grupo da Direita -->
+            <div class="icones-direita">
+                <img src="{{ url_for('static', filename='images/favorito_black.png') }}" width="20" height="20" alt="Favoritar">
+                <br>
+                <img src="{{ url_for('static', filename='images/estrela_black.png') }}" width="20" alt="Avaliação">
+                <small>{{ estabelecimento[3] }}</small>
+            </div>
+
         </div>
-        </a>
         {% endfor %}
 
     </div>
