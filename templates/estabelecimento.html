@@ -40,10 +40,27 @@
                     <b>Mínimo:</b> {{ pedido_minimo }}
                 </div>
             </div>
-
         </div>
-
     </div>
+
+    {% for categoria in cardapio %}
+
+        <h2 class="categoria-titulo">{{ categoria.nome }}</h2>
+
+        {% for item in categoria.itens %}
+            <div class="card-item">
+
+                <div class="item-info">
+                    <b>{{ item.nome }}</b>
+                    <small>{{ item.descricao }}</small>
+                    <span>A partir de R$ {{ item.preco }}</span>
+                </div>
+
+            </div>
+        {% endfor %}
+
+    {% endfor %}
+
 </body>
 </html>
 

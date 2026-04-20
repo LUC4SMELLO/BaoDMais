@@ -82,3 +82,36 @@ body {
 .tempo-direita {
     font-size: 14px;
 }
+
+
+/* TÍTULO DA CATEGORIA */
+.categoria-titulo {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+/* CARD DO ITEM */
+.card-item {
+    border: 2px solid #ccc;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 80px;
+}
+
+/* CONTEÚDO */
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-info small {
+    color: #aaa;
+}
+
+.item-info span {
+    margin-top: 5px;
+}
