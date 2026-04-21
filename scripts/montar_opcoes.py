@@ -37,6 +37,7 @@ def montar_opcoes(id_item):
 
         if opcao_id not in opcoes:
             opcoes[opcao_id] = {
+                "id": opcao_id,
                 "nome": opcao_nome,
                 "itens": []
             }
