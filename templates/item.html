@@ -19,5 +19,30 @@
         <small>{{ descricao }}</small>
     </div>
 
+    {% for opcao in opcoes %}
+        <div class="opcao-inteira">
+
+            <b class="opcao-nome">{{ opcao.nome }}</b>
+
+            {% for item in opcao.itens %}
+                <div class="opcao-item">
+                    
+
+                    <label class="opcao-esquerda">
+                        <input
+                            type="radio"
+                            name="opcao_{{ opcao.id }}"
+                            value="{{ item.id }}"
+                        >
+                        <span>{{ item.nome }}</span>
+                    </label>
+                    <span>R$ {{ item.preco }}</span>
+
+                </div>
+            {% endfor %}
+                
+        </div>
+    {% endfor %}
+
 </body>
 </html>

@@ -22,6 +22,8 @@ body {
     padding: 10px;
     margin: 10px;
     background-color: #fff;
+
+    margin-bottom: 20px;
 }
 
 .informacoes-item b {
@@ -30,3 +32,30 @@ body {
 .informacoes-item small {
     color: #666;
 }
+
+.opcao-inteira {
+    margin-bottom: 30px;
+}
+
+/* TÍTULO DA CATEGORIA */
+.opcao-nome {
+    margin-left: 20px;
+}
+
+.opcao-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.opcao-esquerda {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
