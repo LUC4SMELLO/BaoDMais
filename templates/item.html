@@ -35,6 +35,7 @@
                                 type="radio"
                                 name="opcao_{{ opcao.id }}"
                                 value="{{ item.id }}"
+                                data-preco="{{ item.preco }}"
                             >
                             <span>{{ item.nome }}</span>
                         </label>
@@ -47,5 +48,76 @@
         {% endfor %}
     </div>
 
+    <div class="adicionar-carrinho">
+
+        <div class="quantidade">
+            <span>Quantidade</span>
+
+            <div class="controle-quantidade">
+                <button type="button" class="btn-menos">-</button>
+                <span id="qtd">1</span>
+                <button type="button" class="btn-mais">+</button>
+            </div>
+        </div>
+
+        <button class="botao-adicionar-carrinho">
+            Adicionar • <span id="preco-total">R$ 0,00</span>
+        </button>
+
+    </div>
+
 </body>
+
+<script>
+    let quantidade = 1;
+    const precoBase = 0; // preço do item principal
+
+    const qtdEl = document.getElementById("qtd");
+    const precoEl = document.getElementById("preco-total");
+
+    // pega todos os radios
+    const radios = document.querySelectorAll('input[type="radio"]');
+
+    function calcularPrecoOpcoes() {
+        let totalOpcoes = 0;
+
+        // percorre todos os radios
+        radios.forEach(radio => {
+            if (radio.checked) {
+                totalOpcoes += parseFloat(radio.dataset.preco);
+            }
+        });
+
+        return totalOpcoes;
+    }
+
+    function atualizar() {
+        const totalOpcoes = calcularPrecoOpcoes();
+        const total = (precoBase + totalOpcoes) * quantidade;
+
+        qtdEl.innerText = quantidade;
+        precoEl.innerText = "R$ " + total.toFixed(2);
+    }
+
+    // eventos quantidade
+    document.querySelector(".btn-mais").onclick = () => {
+        quantidade++;
+        atualizar();
+    };
+
+    document.querySelector(".btn-menos").onclick = () => {
+        if (quantidade > 1) {
+            quantidade--;
+            atualizar();
+        }
+    };
+
+    // evento quando seleciona opção
+    radios.forEach(radio => {
+        radio.addEventListener("change", atualizar);
+    });
+
+    atualizar();
+</script>
+
 </html>
