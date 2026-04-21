@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/item.css') }}">
+    <title>Item</title>
+</head>
+<body>
+    <div class="voltar">
+        <a href="{{ url_for('estabelecimento.estabelecimento', id=id_estabelecimento) }}">
+            <img src="{{ url_for('static', filename='images/icons/voltar_black.png') }}" width="40" alt="Relógio">
+        </a>
+    </div>
+
+    <div class="informacoes-item">
+        <b>{{ nome }}</b>
+        <small>{{ descricao }}</small>
+    </div>
+
+</body>
+</html>

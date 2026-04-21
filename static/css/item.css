@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* BOTÃO VOLTAR */
+.voltar {
+    display: flex;
+    margin: 15px;
+}
+
+/* CARD PRINCIPAL */
+.informacoes-item {
+    display: grid;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+}
+
+.informacoes-item b {
+    font-size: 16px;
+}
+.informacoes-item small {
+    color: #666;
+}
