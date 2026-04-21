@@ -1,11 +1,13 @@
 from database.banco_dados_principal import conectar_banco_dados_principal
+from constants.banco_dados import TABELA_CATEGORIAS, TABELA_ITENS
 
 
 def montar_cardapio(id_estabelecimento):
     conexao = conectar_banco_dados_principal()
     cursor = conexao.cursor()
 
-    cursor.execute("""
+    cursor.execute(
+        f"""
         SELECT 
             c.id,
             c.nome,
@@ -13,8 +15,8 @@ def montar_cardapio(id_estabelecimento):
             i.nome,
             i.descricao,
             i.preco
-        FROM categorias c
-        LEFT JOIN itens i 
+        FROM {TABELA_CATEGORIAS} c
+        LEFT JOIN {TABELA_ITENS} i 
             ON i.id_categoria = c.id
             AND i.id_estabelecimento = c.id_estabelecimento
         WHERE c.id_estabelecimento = ?
@@ -23,6 +25,7 @@ def montar_cardapio(id_estabelecimento):
     )
 
     resultados = cursor.fetchall()
+    conexao.close()
 
     cardapio = {}
 
