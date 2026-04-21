@@ -38,6 +38,7 @@ def montar_cardapio(id_estabelecimento):
 
         if row[2]:
             cardapio[categoria_id]["itens"].append({
+                "id": row[2],
                 "nome": row[3],
                 "descricao": row[4],
                 "preco": row[5]

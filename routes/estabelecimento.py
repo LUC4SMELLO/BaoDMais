@@ -15,6 +15,7 @@ def estabelecimento(id):
 
     return render_template(
         "estabelecimento.html",
+        id=id,
         nome=resultado[0],
         tipo=resultado[1],
         avaliacao=resultado[2],

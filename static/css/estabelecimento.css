@@ -115,3 +115,10 @@ body {
 .item-info span {
     margin-top: 5px;
 }
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}

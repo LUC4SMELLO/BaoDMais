@@ -48,6 +48,7 @@
         <h2 class="categoria-titulo">{{ categoria.nome }}</h2>
 
         {% for item in categoria.itens %}
+            <a href="{{ url_for('item.item', id=item.id, id_estabelecimento=id) }}" class="card-link">
             <div class="card-item">
 
                 <div class="item-info">
@@ -57,6 +58,7 @@
                 </div>
 
             </div>
+            </a>
         {% endfor %}
 
     {% endfor %}
