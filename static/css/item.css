@@ -59,3 +59,8 @@ body {
     cursor: pointer;
 }
 
+.opcoes-scroll {
+    max-height: 300px;   /* altura máxima do "frame" */
+    overflow-y: auto;    /* ativa scroll vertical */
+    padding-right: 5px;  /* espaço pro scroll não colar no conteúdo */
+}
