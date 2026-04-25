@@ -23,25 +23,25 @@
             </a>
         </div>
 
-        <div class="e-mail">
-            <label for="e-mail">E-mail:</label>
-            <input type="text" id="e-mail" placeholder="Digite seu e-mail...">
-        </div>
+        <form method="POST" action="{{ url_for('login.login') }}">
+        
+            <div class="e-mail">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email">
+            </div>
 
-        <br>
+            <div class="senha">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha">
+            </div>
 
-        <div class="senha">
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" placeholder="Digite sua senha...">
-        </div>
+            <button type="submit" class="btn-primario">
+                Fazer Login
+            </button>
+
+        </form>
 
     </div>
-
-    <br>
-        
-    <a class="btn-primario">
-        Fazer Login
-    </a>
 
 </body>
 </html>
