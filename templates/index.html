@@ -13,20 +13,26 @@
 </head>
 
 <body>
-    <header>
-        <h1>BãoD++</h1>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/images/logo_bao_d_mais_sem_fundo.png') }}">
+    </div>
 
-        <h3>Essa parte ainda está em construção...</h3>
-        <h3>Mas dá uma olhada na outra página.</h3>
+    <div class="frase">
+        <p class="texto-frase">Pede um trem aí</p>
+    </div>
+
+    <div class="botoes">
+        <a class="btn-primario">
+            Login
+        </a>
 
         <br>
 
-        <a href="{{ url_for('pagina_inicial.pagina_inicial') }}" class="meu-botao">
-            Ir para a Página Inicial
+        <a class="btn-primario">
+            Cadastro
         </a>
+    </div>
 
-
-    </header>
 </body>
 
 </html>
