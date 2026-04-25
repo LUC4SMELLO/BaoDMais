@@ -8,6 +8,48 @@
     <title>Cadastro</title>
 </head>
 <body>
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/images/logo_bao_d_mais_sem_fundo.png') }}">
+    </div>
+
     <h1>Cadastro</h1>
+
+    <div class="campos">
+
+        <div class="voltar">
+            <a href="{{ url_for('/.index') }}">
+                <img src="{{ url_for('static', filename='images/icons/voltar_black.png') }}" width="40" alt="Voltar">
+            </a>
+        </div>
+
+
+        <div class="nome-completo">
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" placeholder="Digite seu nome completo...">
+        </div>
+
+        <br>
+
+        <div class="e-mail">
+            <label for="e-mail">E-mail:</label>
+            <input type="text" id="e-mail" placeholder="Digite seu e-mail...">
+        </div>
+
+        <br>
+
+        <div class="senha">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha...">
+        </div>
+
+    </div>
+
+    <br>
+        
+    <a class="btn-primario">
+        Criar Conta
+    </a>
+
 </body>
 </html>
