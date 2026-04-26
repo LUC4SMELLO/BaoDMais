@@ -15,6 +15,16 @@
 
     <h1>Login</h1>
 
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="alerta {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <div class="campos">
 
         <div class="voltar">
@@ -42,6 +52,16 @@
         </form>
 
     </div>
+
+<script>
+    setTimeout(() => {
+        const alertas = document.querySelectorAll('.alerta');
+        alertas.forEach(alerta => {
+            alerta.style.opacity = '0';
+            setTimeout(() => alerta.remove(), 500);
+        });
+    }, 2500); // 2.5 segundos
+</script>
 
 </body>
 </html>
