@@ -11,7 +11,7 @@ def buscar_por_nome(nome: str):
 
         cursor.execute(
             f"""
-            SELECT nome
+            SELECT id, nome, email
             FROM {TABELA_USUARIOS}
             WHERE nome = ?
             """,
@@ -32,6 +32,7 @@ def buscar_por_nome(nome: str):
         if conexao:
             conexao.close()
 
+
 def buscar_por_email(email: str):
 
     conexao = None
@@ -41,7 +42,7 @@ def buscar_por_email(email: str):
 
         cursor.execute(
             f"""
-            SELECT email
+            SELECT id, nome, email
             FROM {TABELA_USUARIOS}
             WHERE email = ?
             """,
@@ -61,3 +62,35 @@ def buscar_por_email(email: str):
     finally:
         if conexao:
             conexao.close()
+
+
+def buscar_senha(email: str):
+
+    conexao = None
+    try:
+        conexao = conectar_banco_dados_principal()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            f"""
+            SELECT senha
+            FROM {TABELA_USUARIOS}
+            WHERE email = ?
+            """,
+                (
+                    email,
+                )
+            )
+        
+        resultado = cursor.fetchone()
+
+        return resultado
+
+    except Exception as erro:
+        print("Erro ao buscar senha: ", erro)
+        return
+    
+    finally:
+        if conexao:
+            conexao.close()
+
