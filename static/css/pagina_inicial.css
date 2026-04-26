@@ -3,6 +3,11 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     text-align: center;
+    background-color: white;
+}
+
+h3 {
+    color: #ff672d;
 }
 
 .container {
@@ -29,14 +34,23 @@ body {
 }
 
 .pesquisa {
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
     padding: 8px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: black;
+    border-color: #ff672d;
+    transition: transform 0.2s; /* Opcional: efeito suave ao passar o mouse */
+}
+
+.pesquisa:focus {
+    border-color: #ff672d;
+    outline: none;
+    transform: scale(1.01); /* Opcional: ícone aumenta levemente ao passar o mouse */
+    opacity: 0.8;          /* Opcional: ícone fica levemente transparente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .categorias {
@@ -45,6 +59,7 @@ body {
     overflow-x: auto;
     margin-top: 25px;
     margin-bottom: 25px;
+    color: #ff672d;
 }
 
 .disponiveis {
@@ -55,6 +70,7 @@ hr {
     border: 0;
     border-top: 2px solid;
     margin-bottom: 15px;
+    border-color: #ff672d;
 }
 
 .card-link {
