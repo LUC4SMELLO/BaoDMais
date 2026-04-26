@@ -12,3 +12,5 @@ TABELA_CATEGORIAS = "categorias"
 TABELA_OPCOES = "opcoes"
 
 TABELA_OPCOES_VALORES = "opcoes_valores"
+
+TABELA_USUARIOS = "usuarios"
