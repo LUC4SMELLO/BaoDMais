@@ -15,6 +15,16 @@
 
     <h1>Cadastro</h1>
 
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="alerta {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <div class="campos">
 
         <div class="voltar">
@@ -31,15 +41,21 @@
                 <input type="text" id="nome_completo" name="nome_completo">
             </div>
 
+            <br>
+
             <div class="e-mail">
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email">
             </div>
 
+            <br>
+
             <div class="senha">
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha">
             </div>
+
+            <br>
 
             <button type="submit" class="btn-primario">
                 Criar Conta
@@ -49,6 +65,17 @@
 
     </div>
 
+
+
+<script>
+    setTimeout(() => {
+        const alertas = document.querySelectorAll('.alerta');
+        alertas.forEach(alerta => {
+            alerta.style.opacity = '0';
+            setTimeout(() => alerta.remove(), 500);
+        });
+    }, 2500); // 2.5 segundos
+</script>
 
 </body>
 </html>
