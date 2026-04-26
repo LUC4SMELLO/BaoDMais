@@ -1,6 +1,7 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, redirect, url_for, flash, session, render_template
 
-from models.estabelecimento_model import EstabelecimentoModel
+from validators.validar_login import validar_login
+from services.usuario_service import buscar_por_email
 
 
 login_bp = Blueprint("login", __name__)
@@ -9,14 +10,19 @@ login_bp = Blueprint("login", __name__)
 def login():
 
     if request.method == "POST":
-        email = request.form.get("email")
-        senha = request.form.get("senha")
+        email = request.form.get("email").lstrip().rstrip().lower()
+        senha = request.form.get("senha").lstrip().rstrip()
 
-        print(email, senha)
-
-        estabelecimentos = EstabelecimentoModel.listar_estabelecimentos()
-
-        return render_template("pagina_inicial.html", estabelecimentos=estabelecimentos)
+        resultado = validar_login(email, senha)
+        if not resultado["sucesso"]:
+            flash(resultado["mensagem"], "erro")
+            return redirect(url_for("login.login"))
+        
+        usuario = buscar_por_email(email)
+        
+        session["nome"] = usuario[1].title()
+        session["id"] = usuario[0]
+        return redirect(url_for("pagina_inicial.pagina_inicial"))
 
 
     return render_template("login.html")
