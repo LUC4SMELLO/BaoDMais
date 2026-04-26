@@ -10,9 +10,9 @@ cadastro_bp = Blueprint("cadastro", __name__)
 def cadastro():
 
     if request.method == "POST":
-        nome = request.form.get("nome_completo")
-        email = request.form.get("email")
-        senha = request.form.get("senha")
+        nome = request.form.get("nome_completo").lstrip().rstrip().lower()
+        email = request.form.get("email").lstrip().rstrip().lower()
+        senha = request.form.get("senha").lstrip().rstrip()
 
 
         resultado = validar_cadastro(nome, email, senha)
@@ -22,7 +22,7 @@ def cadastro():
         
         UsuarioModel.inserir_usuario(nome, email, senha)
 
-        session["nome"] = nome
+        session["nome"] = nome.title()
         return redirect(url_for("pagina_inicial.pagina_inicial"))
 
 
