@@ -17,7 +17,9 @@
     <div class="container">
 
         <div class="topo">
-            <h3>Olá, username!</h3>
+            {% if session['nome'] %}
+                <h3>Olá, {{ session['nome'] }}!</h3>
+            {% endif %}
             <div class="icones">
                 <a href="{{ url_for('carrinho.carrinho') }}">
                     <img src="{{ url_for('static', filename='images/icons/carrinho_black.png') }}" width="35" alt="Carrinho">
