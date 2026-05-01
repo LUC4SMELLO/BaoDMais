@@ -6,6 +6,10 @@ body {
     background-color: white;
 }
 
+h2 {
+    color: #ff672d;
+}
+
 h3 {
     color: #ff672d;
 }
@@ -41,12 +45,12 @@ h3 {
     padding: 8px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    border-color: #ff672d;
+    border-color: #000000;
     transition: transform 0.2s; /* Opcional: efeito suave ao passar o mouse */
 }
 
 .pesquisa:focus {
-    border-color: #ff672d;
+    border-color: #000000;
     outline: none;
     transform: scale(1.01); /* Opcional: ícone aumenta levemente ao passar o mouse */
     opacity: 0.8;          /* Opcional: ícone fica levemente transparente */
@@ -59,7 +63,8 @@ h3 {
     overflow-x: auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    color: #ff672d;
+    color: #000000;
+    font-weight: 500;
 }
 
 .disponiveis {
@@ -70,7 +75,7 @@ hr {
     border: 0;
     border-top: 2px solid;
     margin-bottom: 15px;
-    border-color: #ff672d;
+    border-color: #000000;
 }
 
 .card-link {
