@@ -14,6 +14,14 @@
         </a>
     </div>
 
+    <div
+        id="item"
+        data-id="{{ id }}"
+        data-nome="{{ nome }}"
+        data-preco="{{ preco }}"
+        data-estabelecimento="{{ id_estabelecimento }}"
+    ></div>
+
     <div class="informacoes-item">
         <b>{{ nome }}</b>
         <small>{{ descricao }}</small>
@@ -36,6 +44,8 @@
                                 name="opcao_{{ opcao.id }}"
                                 value="{{ item.id }}"
                                 data-preco="{{ item.preco }}"
+                                data-nome="{{ item.nome }}"
+                                data-id="{{ opcao.id }}"
                             >
                             <span>{{ item.nome }}</span>
                         </label>
@@ -60,7 +70,7 @@
             </div>
         </div>
 
-        <button class="botao-adicionar-carrinho">
+        <button class="botao-adicionar-carrinho" id="btn-carrinho">
             Adicionar • <span id="preco-total">R$ 0,00</span>
         </button>
 
@@ -118,6 +128,124 @@
     });
 
     atualizar();
+</script>
+
+<script>
+
+    document.getElementById("btn-carrinho").addEventListener("click", async () => {
+
+        // -------------------------
+        // ITEM PRINCIPAL
+        // -------------------------
+
+        const item = {
+
+            id: document.getElementById("item").dataset.id,
+            nome: document.getElementById("item").dataset.nome,
+            preco: document.getElementById("item").dataset.preco,
+            id_estabelecimento: document.getElementById("item").dataset.estabelecimento
+
+        };
+
+
+        // -------------------------
+        // QUANTIDADE
+        // -------------------------
+
+        const quantidade = parseInt(
+            document.getElementById("qtd").innerText
+        );
+
+
+        // -------------------------
+        // OPÇÕES
+        // -------------------------
+
+        const grupos = document.querySelectorAll(".opcao-inteira");
+
+        const opcoesSelecionadas = [];
+
+        grupos.forEach(grupo => {
+
+            // RADIO
+            const radioSelecionado = grupo.querySelector(
+                'input[type="radio"]:checked'
+            );
+
+            if (radioSelecionado) {
+
+                opcoesSelecionadas.push({
+
+                    id: radioSelecionado.dataset.id,
+                    nome: radioSelecionado.dataset.nome,
+                    preco: radioSelecionado.dataset.preco,
+                    tipo: "radio"
+
+                });
+
+            }
+
+
+            // CHECKBOX
+            const checkboxesSelecionados = grupo.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            );
+
+            checkboxesSelecionados.forEach(checkbox => {
+
+                opcoesSelecionadas.push({
+
+                    id: checkbox.value,
+                    nome: checkbox.dataset.nome,
+                    preco: checkbox.dataset.preco,
+                    tipo: "checkbox"
+
+                });
+
+            });
+
+        });
+
+
+        // -------------------------
+        // DADOS FINAIS
+        // -------------------------
+
+        const dados = {
+
+            item: item,
+            quantidade: quantidade,
+            opcoes: opcoesSelecionadas
+
+        };
+
+        console.log(dados);
+
+
+        // -------------------------
+        // ENVIA PARA O BACKEND
+        // -------------------------
+
+        const resposta = await fetch("/adicionar_carrinho", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(dados)
+
+        });
+
+        const resultado = await resposta.json();
+
+        if (resultado.url) {
+            window.location.href = resultado.url;
+        }
+
+    });
+
 </script>
 
 </html>
