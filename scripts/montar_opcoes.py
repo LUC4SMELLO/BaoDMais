@@ -44,6 +44,7 @@ def montar_opcoes(id_item):
 
         if row[2]:
             opcoes[opcao_id]["itens"].append({
+                "id": row[2],
                 "nome": row[3],
                 "preco": row[4]
             })

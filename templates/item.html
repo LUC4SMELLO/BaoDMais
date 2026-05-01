@@ -45,7 +45,8 @@
                                 value="{{ item.id }}"
                                 data-preco="{{ item.preco }}"
                                 data-nome="{{ item.nome }}"
-                                data-id="{{ opcao.id }}"
+                                data-id-opcao="{{ opcao.id }}"
+                                data-id-opcao-valor="{{ item.id }}"
                             >
                             <span>{{ item.nome }}</span>
                         </label>
@@ -176,10 +177,11 @@
 
                 opcoesSelecionadas.push({
 
-                    id: radioSelecionado.dataset.id,
+                    id_opcao_valor: radioSelecionado.dataset.idOpcaoValor,
                     nome: radioSelecionado.dataset.nome,
                     preco: radioSelecionado.dataset.preco,
-                    tipo: "radio"
+                    tipo: "radio",
+                    id_opcao: radioSelecionado.dataset.idOpcao
 
                 });
 
@@ -195,10 +197,11 @@
 
                 opcoesSelecionadas.push({
 
-                    id: checkbox.value,
+                    id_opcao_valor: checkbox.dataset.idOpcaoValor,
                     nome: checkbox.dataset.nome,
                     preco: checkbox.dataset.preco,
-                    tipo: "checkbox"
+                    tipo: "checkbox",
+                    id_opcao: radioSelecionado.dataset.idOpcao
 
                 });
 
