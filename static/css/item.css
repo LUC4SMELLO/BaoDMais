@@ -27,9 +27,11 @@ body {
 }
 
 .informacoes-item b {
-    font-size: 20px;
+    font-size: 22px;
+    color: #ff672d; 
 }
 .informacoes-item small {
+    font-size: 16px;
     color: #666;
 }
 
@@ -39,6 +41,8 @@ body {
 
 /* TÍTULO DA CATEGORIA */
 .opcao-nome {
+    font-size: 20px;
+    color:#ff672d;
     margin-left: 20px;
 }
 
