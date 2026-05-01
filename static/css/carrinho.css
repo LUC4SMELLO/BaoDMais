@@ -4,3 +4,97 @@ body {
     font-size: 1rem;
     text-align: center;
 }
+
+/* Botão voltar */
+.voltar {
+    display: flex;
+    margin: 15px;
+}
+
+.titulo-carrinho {
+    color: #ff672d;
+}
+.titulo-carrinho b {
+    font-size: 25px;
+}
+
+.nome-estabelecimento {
+    margin: 10px;
+}
+
+
+.card-item {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    border: 2px solid #ccc;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70px;
+}
+
+.item-quantidade {
+    display: flex;
+    margin-left: 20px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    margin-left: 15px;
+}
+
+.preco-total {
+    margin-top: 10px;
+}
+
+.botoes {
+    text-align: right;
+}
+
+.botao-editar {
+    width: 80px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: #3377dd;
+    color: white;
+    text-decoration: none;
+
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    margin-bottom: 15px;
+}
+
+.botao-remover {
+    width: 80px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: #dd3333;
+    color: white;
+    text-decoration: none;
+
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+

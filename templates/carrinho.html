@@ -7,7 +7,49 @@
     <title>Carrinho</title>
 </head>
 <body>
-    <h1>Carrinho</h1>
-    <h1>Em construção...</h1>
+    <div class="voltar">
+        <a href="{{ url_for('pagina_inicial.pagina_inicial') }}">
+            <img src="{{ url_for('static', filename='images/icons/voltar_black.png') }}" width="40" alt="Relógio">
+        </a>
+    </div>
+
+    <div class="titulo-carrinho">
+        <b>Carrinho Compras</b>
+    </div>
+
+    <div class="nome-estabelecimento">
+        <h1>Nome Estabelecimento</h1>
+    </div>
+
+    <div class="card-item">
+
+        <div class="item-quantidade">
+            <b>1x</b>
+        </div>
+
+        <div class="item-info">
+            <b>Nome Item</b>
+            <small>Nome Opção</small>
+
+            <div class="preco-total">
+                <b>Preço Total</b>
+            </div>
+        </div>
+
+        <div class="botoes">
+            <a class="botao-editar">
+                Editar
+            </a>
+
+            <a class="botao-remover">
+                Remover
+            </a>
+        </div>
+
+    </div>
+
+    
+
+
 </body>
 </html>
