@@ -69,14 +69,16 @@
         </div>
     {% endfor %}
 
-    <div class="finalizar-pedido">
-    
-        <button class="botao-finalizar-pedido" id="btn-finalizar">
-            Finalizar Pedido •
-            <span id="preco-total">R$ {{ total_geral }}</span>
-        </button>
-
-    </div>
+    {% if nome_estabelecimento %}
+        <div class="finalizar-pedido">
+        
+            <button class="botao-finalizar-pedido" id="btn-finalizar">
+                Finalizar Pedido •
+                <span id="preco-total">R$ {{ total_geral }}</span>
+            </button>
+            
+        </div>
+    {% endif %}
 
 
 </body>

@@ -8,9 +8,9 @@ def carrinho():
 
     carrinho = session.get("carrinho", [])
 
-    try:
+    if len(carrinho) > 0:
         nome_estabelecimento = carrinho[0]["nome_estabelecimento"]
-    except Exception:
+    else:
         nome_estabelecimento = ""
 
     total_geral = sum(float(item['preco_total']) for item in carrinho)
