@@ -18,36 +18,40 @@
     </div>
 
     <div class="nome-estabelecimento">
-        <h1>Nome Estabelecimento</h1>
+        <h1>{{ nome_estabelecimento }}</h1>
     </div>
 
-    <div class="card-item">
+    {% for item in carrinho %}
+        <div class="card-item">
 
-        <div class="item-quantidade">
-            <b>1x</b>
-        </div>
-
-        <div class="item-info">
-            <b>Nome Item</b>
-            <small>Nome Opção</small>
-
-            <div class="preco-total">
-                <b>Preço Total</b>
+            <div class="item-quantidade">
+                <b>{{ item.quantidade }}x</b>
             </div>
+
+            <div class="item-info">
+                <b>{{ item.nome }}</b>
+
+                {% for opcao in item.opcoes %}
+                    <small>{{ opcao.nome }} - R${{ opcao.preco }}</small>
+                {% endfor %}
+
+                <div class="preco-total">
+                    <b>Preço Total: R$ {{ item.preco_total }}</b>
+                </div>
+            </div>
+
+            <div class="botoes">
+                <a class="botao-editar">
+                    Editar
+                </a>
+
+                <a class="botao-remover">
+                    Remover
+                </a>
+            </div>
+
         </div>
-
-        <div class="botoes">
-            <a class="botao-editar">
-                Editar
-            </a>
-
-            <a class="botao-remover">
-                Remover
-            </a>
-        </div>
-
-    </div>
-
+    {% endfor %}
     
 
 
