@@ -7,6 +7,17 @@
     <title>Estabelecimento</title>
 </head>
 <body>
+    
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="alerta {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <div class="voltar">
         <a href="{{ url_for('pagina_inicial.pagina_inicial') }}">
             <img src="{{ url_for('static', filename='images/icons/voltar_black.png') }}" width="40" alt="Relógio">
@@ -64,5 +75,16 @@
     {% endfor %}
 
 </body>
+
+<script>
+    setTimeout(() => {
+        const alertas = document.querySelectorAll('.alerta');
+        alertas.forEach(alerta => {
+            alerta.style.opacity = '0';
+            setTimeout(() => alerta.remove(), 500);
+        });
+    }, 2500); // 2.5 segundos
+</script>
+
 </html>
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, request, session, jsonify, url_for
+from flask import Blueprint, request, session, jsonify, url_for, flash
 
 
 adicionar_carrinho_bp = Blueprint("adicionar_carrinho", __name__)
@@ -8,13 +8,21 @@ def adicionar_carrinho():
 
     dados = request.get_json()
 
-
     item = dados["item"]
     quantidade = dados["quantidade"]
     opcoes = dados["opcoes"]
-
     index = dados.get("index")
 
+    url_destino = url_for("estabelecimento.estabelecimento", id=item["id_estabelecimento"])
+
+    if "carrinho" not in session:
+        session["carrinho"] = []
+    carrinho = session["carrinho"]
+
+    if len(carrinho) > 0:
+        if str(item["id_estabelecimento"]) != str(carrinho[0]["id_estabelecimento"]):
+            flash("Você possui itens de outro estabelecimento no carrinho!", "erro")
+            return jsonify({"url": url_destino})
 
     item_carrinho = {
         "id_estabelecimento": item["id_estabelecimento"],
@@ -36,11 +44,6 @@ def adicionar_carrinho():
         sum(opcao["preco"] for opcao in item_carrinho["opcoes"]) * quantidade
     )
 
-    
-    if "carrinho" not in session:
-        session["carrinho"] = []
-    carrinho = session["carrinho"]
-
 
     if index != "":
         carrinho[int(index)] = item_carrinho
@@ -50,8 +53,6 @@ def adicionar_carrinho():
 
     session["carrinho"] = carrinho
 
-    url_destino = url_for("estabelecimento.estabelecimento", id=item["id_estabelecimento"])
 
-    return jsonify({
-        "url": url_destino
-    })
+    flash("Produto adicionado ao carrinho!", "sucesso")
+    return jsonify({"url": url_destino})
