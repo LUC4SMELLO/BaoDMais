@@ -52,7 +52,7 @@
                     Editar
                 </a>
 
-                <a class="botao-remover">
+                <a href="{{ url_for('remover_carrinho.remover_carrinho', index=loop.index0) }}" class="botao-remover">
                     Remover
                 </a>
             </div>
