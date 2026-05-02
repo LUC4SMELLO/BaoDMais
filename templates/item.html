@@ -19,7 +19,8 @@
         data-id="{{ id }}"
         data-nome="{{ nome }}"
         data-preco="{{ preco }}"
-        data-estabelecimento="{{ id_estabelecimento }}"
+        data-id-estabelecimento="{{ id_estabelecimento }}"
+        data-nome-estabelecimento="{{ nome_estabelecimento }}"
     ></div>
 
     <div class="informacoes-item">
@@ -144,7 +145,8 @@
             id: document.getElementById("item").dataset.id,
             nome: document.getElementById("item").dataset.nome,
             preco: document.getElementById("item").dataset.preco,
-            id_estabelecimento: document.getElementById("item").dataset.estabelecimento
+            id_estabelecimento: document.getElementById("item").dataset.idEstabelecimento,
+            nome_estabelecimento: document.getElementById("item").dataset.nomeEstabelecimento
 
         };
 
