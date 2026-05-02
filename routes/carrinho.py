@@ -12,5 +12,7 @@ def carrinho():
         nome_estabelecimento = carrinho[0]["nome_estabelecimento"]
     except Exception:
         nome_estabelecimento = ""
+
+    total_geral = sum(float(item['preco_total']) for item in carrinho)
     
-    return render_template("carrinho.html", carrinho=carrinho, nome_estabelecimento=nome_estabelecimento)
+    return render_template("carrinho.html", carrinho=carrinho, nome_estabelecimento=nome_estabelecimento, total_geral=total_geral)

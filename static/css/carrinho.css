@@ -110,3 +110,36 @@ body {
     transition: 0.2s;
 }
 
+.finalizar-pedido {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: #fff;
+    border-top: 1px solid #ddd;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botao-finalizar-pedido {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+
+    background: #009148;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-finalizar-pedido:hover {
+    background: #27ae60;
+}
