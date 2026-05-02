@@ -7,8 +7,8 @@ from scripts.montar_opcoes import montar_opcoes
 
 item_bp = Blueprint("item", __name__)
 
-@item_bp.route("/item/<int:id>/<int:id_estabelecimento>", methods=["GET"])
-def item(id, id_estabelecimento):
+@item_bp.route("/item/<int:id>/<int:id_estabelecimento>/<string:nome_estabelecimento>", methods=["GET"])
+def item(id, id_estabelecimento, nome_estabelecimento):
     
     item = ItemModel.buscar_item(id, id_estabelecimento)
     opcoes = montar_opcoes(id)
@@ -17,6 +17,7 @@ def item(id, id_estabelecimento):
         "item.html",
         id=id,
         id_estabelecimento=id_estabelecimento,
+        nome_estabelecimento=nome_estabelecimento,
         nome=item[0],
         descricao=item[1],
         opcoes=opcoes.values()
