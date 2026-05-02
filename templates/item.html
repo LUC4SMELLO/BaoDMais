@@ -48,6 +48,18 @@
                                 data-nome="{{ item.nome }}"
                                 data-id-opcao="{{ opcao.id }}"
                                 data-id-opcao-valor="{{ item.id }}"
+
+                                {% if item_carrinho %}
+
+                                    {% for opcao_carrinho in item_carrinho.opcoes %}
+
+                                        {% if opcao_carrinho.id_opcao_valor|string == item.id|string %}
+                                            checked
+                                        {% endif %}
+
+                                    {% endfor %}
+
+                                {% endif %}
                             >
                             <span>{{ item.nome }}</span>
                         </label>
@@ -67,13 +79,20 @@
 
             <div class="controle-quantidade">
                 <button type="button" class="btn-menos">-</button>
-                <span id="qtd">1</span>
+                <span id="qtd">
+                    {{ item_carrinho.quantidade if item_carrinho else 1 }}
+                </span>
                 <button type="button" class="btn-mais">+</button>
             </div>
         </div>
 
         <button class="botao-adicionar-carrinho" id="btn-carrinho">
-            Adicionar • <span id="preco-total">R$ 0,00</span>
+            {% if index %}
+                Salvar Alterações •
+            {% else %}
+                Adicionar •
+            {% endif %}
+            <span id="preco-total">R$ 0,00</span>
         </button>
 
     </div>
@@ -81,7 +100,9 @@
 </body>
 
 <script>
-    let quantidade = 1;
+    let quantidade = parseInt(
+        document.getElementById("qtd").innerText
+    );
     const precoBase = 0; // preço do item principal
 
     const qtdEl = document.getElementById("qtd");
@@ -203,7 +224,7 @@
                     nome: checkbox.dataset.nome,
                     preco: checkbox.dataset.preco,
                     tipo: "checkbox",
-                    id_opcao: radioSelecionado.dataset.idOpcao
+                    id_opcao: checkbox.dataset.idOpcao
 
                 });
 
@@ -220,7 +241,9 @@
 
             item: item,
             quantidade: quantidade,
-            opcoes: opcoesSelecionadas
+            opcoes: opcoesSelecionadas,
+
+            index: "{{ index if index else '' }}"
 
         };
 

@@ -13,6 +13,8 @@ def adicionar_carrinho():
     quantidade = dados["quantidade"]
     opcoes = dados["opcoes"]
 
+    index = dados.get("index")
+
 
     item_carrinho = {
         "id_estabelecimento": item["id_estabelecimento"],
@@ -34,11 +36,17 @@ def adicionar_carrinho():
         sum(opcao["preco"] for opcao in item_carrinho["opcoes"]) * quantidade
     )
 
+    
     if "carrinho" not in session:
         session["carrinho"] = []
-
     carrinho = session["carrinho"]
-    carrinho.append(item_carrinho)
+
+
+    if index != "":
+        carrinho[int(index)] = item_carrinho
+    else:
+        carrinho.append(item_carrinho)
+
 
     session["carrinho"] = carrinho
 

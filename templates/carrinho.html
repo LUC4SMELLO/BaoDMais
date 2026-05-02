@@ -48,7 +48,16 @@
             </div>
 
             <div class="botoes">
-                <a class="botao-editar">
+                <a
+                href="{{ url_for(
+                    'item.item',
+                    id=item.id_item,
+                    id_estabelecimento=item.id_estabelecimento,
+                    nome_estabelecimento=nome_estabelecimento,
+                    index=loop.index0
+                    ) }}"
+                    class="botao-editar"
+                    >
                     Editar
                 </a>
 
