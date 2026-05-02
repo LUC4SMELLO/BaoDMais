@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/carrinho.css') }}">
-    <title>Carrinho</title>
+    <title>Carrinho de Compras</title>
 </head>
 <body>
     <div class="voltar">
@@ -14,11 +14,18 @@
     </div>
 
     <div class="titulo-carrinho">
-        <b>Carrinho Compras</b>
+        <b>Carrinho de Compras</b>
     </div>
 
     <div class="nome-estabelecimento">
-        <h1>{{ nome_estabelecimento }}</h1>
+        {% if nome_estabelecimento %}
+            <h1>{{ nome_estabelecimento }}</h1>
+        {% else %}
+            <h1>Vazio...</h1>
+            <small>Você não tem nenhum produto em seu carrinho de compras.</small>
+            <br>
+            <img src="{{ url_for('static', filename='images/images/carrinho_compras_vazio.png') }}" width="500" alt="Carrinho Vazio">
+        {% endif %}
     </div>
 
     {% for item in carrinho %}
