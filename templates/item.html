@@ -181,11 +181,47 @@
         );
 
 
+        
+
         // -------------------------
-        // OPÇÕES
+        // VERIFICANDO SE TEM ALGO MARCADO
         // -------------------------
 
         const grupos = document.querySelectorAll(".opcao-inteira");
+
+        let possuiErro = false;
+
+        grupos.forEach(grupo => {
+
+            const radioSelecionado = grupo.querySelector(
+                'input[type="radio"]:checked'
+            );
+
+            const possuiRadio = grupo.querySelector(
+                'input[type="radio"]'
+            );
+
+            if (possuiRadio && !radioSelecionado) {
+
+                possuiErro = true;
+
+            } else {
+
+                grupo.style.border = "none";
+
+            }
+
+        });
+
+        if (possuiErro) {
+
+            return;
+        }
+
+        
+        // -------------------------
+        // OPÇÕES
+        // -------------------------
 
         const opcoesSelecionadas = [];
 
