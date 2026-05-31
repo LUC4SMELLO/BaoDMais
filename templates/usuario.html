@@ -7,7 +7,55 @@
     <title>Usuário</title>
 </head>
 <body>
-    <h1>Usuário</h1>
-    <h1>Em construção...</h1>
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="alerta {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <div class="voltar">
+        <a href="{{ url_for('pagina_inicial.pagina_inicial') }}">
+            <img src="{{ url_for('static', filename='images/icons/voltar_black.png') }}" width="40" alt="Relógio">
+        </a>
+    </div>
+
+    <div class="titulo-perfil">
+        <b>Perfil do Usuário</b>
+    </div>
+
+    <h1>{{ nome }}</h1>
+
+    <form action="{{ url_for('usuario.alterar_informacoes') }}" method="POST">
+        <div class="campos">
+            <div class="nome-completo">
+                <label for="nome_completo">Nome:</label>
+                <input type="text" id="nome_completo" name="nome_completo" value="{{ nome }}">
+            </div>
+            <br>
+            <div class="e-mail">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" value="{{ email }}">
+            </div>
+        </div>
+
+        <button type="submit" class="btn-primario">
+            Salvar
+        </button>
+    </form>
+
+<script>
+    setTimeout(() => {
+        const alertas = document.querySelectorAll('.alerta');
+        alertas.forEach(alerta => {
+            alerta.style.opacity = '0';
+            setTimeout(() => alerta.remove(), 500);
+        });
+    }, 2500); // 2.5 segundos
+</script>
 </body>
 </html>
