@@ -40,6 +40,37 @@ class UsuarioModel:
             if conexao:
                 conexao.close()
 
+    @staticmethod
+    def editar_usuario(id, nome, email):
+
+        conexao = None
+        try:
+            conexao = conectar_banco_dados_principal()
+            cursor = conexao.cursor()
+
+            cursor.execute(
+                f"""
+                UPDATE {TABELA_USUARIOS}
+                SET nome = ?,
+                email = ?
+                WHERE id = ?
+                """,
+                    (
+                        nome,
+                        email,
+                        id
+                    )
+            )
+
+            conexao.commit()
+        
+        except Exception as erro:
+            print("Erro ao editar informações do usuário: ", erro)
+            return
+        finally:
+            if conexao:
+                conexao.close()
+
 
     @staticmethod
     def buscar_usuario(dados: dict):
