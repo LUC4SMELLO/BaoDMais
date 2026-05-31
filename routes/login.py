@@ -10,7 +10,7 @@ login_bp = Blueprint("login", __name__)
 def login():
 
     if request.method == "POST":
-        email = request.form.get("email").lstrip().rstrip().lower()
+        email = request.form.get("email").lstrip().rstrip()
         senha = request.form.get("senha").lstrip().rstrip()
 
         resultado = validar_login(email, senha)
@@ -21,6 +21,7 @@ def login():
         usuario = buscar_por_email(email)
         
         session["nome"] = usuario[1].title()
+        session["email"] = usuario[2]
         session["id"] = usuario[0]
         return redirect(url_for("pagina_inicial.pagina_inicial"))
 
